@@ -1,0 +1,10 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase //
+
+RewriteRule ^admin2$ admin.php?url=$1 [QSA,L]
+RewriteRule ^admin2/(.*)$ admin.php?url=$1 [QSA,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]

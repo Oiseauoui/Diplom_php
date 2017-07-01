@@ -5,7 +5,7 @@
 
     if(!empty($_GET['msg']) && $_GET['msg'] == '1'){
      echo   '<h3 style="color:red">Вы успешно отредактировали слайд!</h3><br>';
-    } 
+    }
     if(!empty($_GET['msg']) && $_GET['msg'] == '2'){
      echo   '<h3 style="color:red">Вы не изменили слайд!</h3><br>';
     }
@@ -17,7 +17,7 @@
     }
     ?>
     <span>Бегунок</span>
-    
+
     <table class="mt15 table-responsive">
         <tr>
             <th>Редактировать</th>
@@ -34,7 +34,7 @@
                 <img width="200"  src="<?php echo URL . 'images/home/' . $slider['image']?>" alt="slider.jpg"/>
             </td>
             <td>
-                <?php echo $slider['welcome']; ?>
+                <?php echo $slider['welcome'];?>
             </td>
             <td>
                 <?php echo $slider['shop'];?>
@@ -42,8 +42,8 @@
         </tr>
         <?php }?>
     </table>
-    
-    
+
+
     <span>Просмотр элементов ниже бегунка</span>
    <p>При выборе текста и изображений, иметь в виду, что первый пункт приводит к товару, а второй и третий с инструкциями</p>
 
@@ -63,6 +63,6 @@
         </tr>
         <?php } ?>
     </table>
-    
+
     </section>
 </div>

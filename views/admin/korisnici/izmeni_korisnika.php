@@ -1,7 +1,7 @@
 <div class="col-xs-12 col-sm-9 col-md-10">
     <section class='content'>
         <p class="title1">КЛИЕНТЫ</p>
-        
+
 <form class="form" action="<?php echo ADMIN_URL . 'korisnici/izmeniKorisnika'; ?>" method="post" >
     <input type="hidden" name="user_id" value="<?php echo $this->korisnik['user_id']; ?>" />
     <label for="login">Login:</label> <input type="text" id="login" name="login" value="<?php echo ($this->korisnik['login']); ?>"/> <br/>
@@ -18,7 +18,7 @@
         <option name="active" value="0" <?php echo ($this->korisnik['active']==0 ? 'selected="selected"' : '') ?>>Неактивен</option>
 
     </select> <br/>
-    <label for="fk_group_id">Grupa:</label> 
+    <label for="fk_group_id">Группа</label>
     <select name="fk_group_id">
                 <option value=""> - - - - - </option>
                 <?php

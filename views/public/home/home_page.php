@@ -19,7 +19,7 @@
                 <?php } ?>
             </div>
 
-        </div>       
+        </div>
     </div>
 </header>
 <!--Kraj slider-a -->
@@ -37,17 +37,17 @@
                                 <p class='home-caption'>
                                     <?php echo $items['title']; ?>
                                 </p>
-                            </a>  
+                            </a>
                         <?php } else { ?>
                             <a href='<?php echo URL . $items['taketo'] ?>'><img width="250" alt="no_image"  src="<?php echo URL . 'images/no_image.png' ?>" />
                                 <p class='home-caption'>
                                     <?php echo $items['title']; ?>
                                 </p>
-                            </a>                      
+                            </a>
                         <?php } ?>
                     </div>
                 </div>
-            <?php } ?> 
+            <?php } ?>
         </div>
     </div>
 </section>

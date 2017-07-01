@@ -1,11 +1,11 @@
-    <footer>
+<footer>
         <div class="container-fluid">
             <div class="row">
                 <div class='col-xs-12 col-sm-4'>
                     <p class='about'>
                         <a href="#aboutModal" data-toggle="modal">О компании</a>
                     </p>
-                    <img src='<?php echo  'images/logo.jpg'?>' alt='logo.jpg'>
+                    <img src='<?php echo URL . 'images/logo.jpg'?>' alt='logo.jpg'>
                 </div>
                 <div class='col-xs-12 col-sm-4'>
                     <div class='info'>
@@ -17,7 +17,7 @@
                         E-mail: myworkmyrest@gmail.com
                         </span>
                     </div>
-                    
+
                 </div>
                 <div class='col-xs-12 col-sm-4'>
                     <div class='uslovi'>
@@ -66,7 +66,7 @@
 
                                 </p>
                             <p><strong>Наш лозунг:"Мода - это стиль жизни!"</strong></p>
-                            
+
                             <button type="button" class="button" data-dismiss="modal"> Закрыть окно</button>
                         </div>
                     </div>
@@ -116,14 +116,14 @@
                                доставить Вам товар по точному адресу. </p>
 
                             <p><strong> Если у вас есть какие-либо вопросы, пожалуйста, свяжитесь с нами!</strong></p>
-                            
+
                             <button type="button" class="button" data-dismiss="modal"> Закрыть окно</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>  
+    </div>
      <div class="footer-modal modal fade" id="uputstvoModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -148,7 +148,7 @@
                             </p>
                             <p>
                                 После нажатия на ссылку РЕГИСТРАЦИЯ, Вам пришлют на почту код для активации учетной записи.
-                                Нажав на ссылку <span style="color:blue;">ovde</span>
+                                Нажав на ссылку <span style="color:blue;">здесь</span>
                                 подтверждения и перейдя по ссылке ВОЙТИ <br><br>
                                 <img class="img-responsive img-centered" src="<?php echo  'images/mailuputstvo.jpg'?>" alt="mail"><br><br>
                             </p>
@@ -157,14 +157,14 @@
                                 <img class="img-responsive img-centered" src="<?php echo  'images/reglogin.jpg'?>" alt="login"><br><br>
                             </p>
                             <p><strong>Если вам нужна помощь с регистрацией, пожалуйста, свяжитесь с нами, мы здесь для вас!</strong></p>
-                            
+
                             <button type="button" class="button" data-dismiss="modal"> Закрыть окно</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>  
+    </div>
      <div class="footer-modal modal fade" id="isporukaModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -188,19 +188,18 @@
                             </p>
 
                             <p><strong> Если у вас есть какие-либо вопросы, пожалуйста, свяжитесь с нами!</strong></p>
-                            
+
                             <button type="button" class="button" data-dismiss="modal"> Закрыть окно</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>        
+    </div>
         </div>
     </footer>
 <div id='arrow-top'>
-    <img src='<?php echo  "images/arrow.png"?>' alt='vrh'/>
+    <img src='<?php echo  "images/arrow.png"?>' alt='arrow'/>
 </div>
     </body>
 </html>
-

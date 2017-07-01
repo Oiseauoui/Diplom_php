@@ -1,39 +1,39 @@
 <section class='content'>
-    <p class="title1">PODKATEGORIJE</p>
-   
+    <p class="title1">ПОДКАТЕГОРИЯ</p>
+
 <div class='col-xs-12 col-sm-3 col-md-3'>
-    
+
 <?php
 
     if(!empty($_GET['error']) && $_GET['error'] == '1'){
-     echo   '<h3 style="color:red">Uspešno ste dodali novu podkategoriju!</h3><br>';
+     echo   '<h3 style="color:red">Категория усспешно добавлена!</h3><br>';
     }
     if(!empty($_GET['error']) && $_GET['error'] == '2'){
-     echo   '<h3 style="color:red">Niste dodali podkategoriju!</h3><br>';
+     echo   '<h3 style="color:red">Категория не добавлена!</h3><br>';
     }
     if(!empty($_GET['error']) && $_GET['error'] == '3'){
-     echo   '<h3 style="color:red">Podkategorija je obrisana!</h3><br>';
+     echo   '<h3 style="color:red">Подкатегория была удалена!</h3><br>';
     }
     if(!empty($_GET['error']) && $_GET['error'] == '4'){
-     echo   '<h3 style="color:red">Podkategorija nije obrisana, pokušajte ponovo!</h3><br>';
+     echo   '<h3 style="color:red">Подкатегория не удаляется, попробуйте еще раз!</h3><br>';
     }
     if(!empty($_GET['error']) && $_GET['error'] == '5'){
      echo   '<h3 style="color:red">Nije obrisana, prvo morate obrisati proizvode te podkategorije!</h3><br>';
     }
     if (!empty($_GET['msg']) && $_GET['msg'] == '5'){
-    echo '<h3 style="color:red">Podkategorija sa unetim nazivom vec postoji u bazi!</h3>';
+    echo '<h3 style="color:red">Подкатегория с введенным названием уже существует!</h3>';
 }
 ?>
-    <span> Dodaj podkategoriju:</span>
+    <span> Добавить подкатегорию:</span>
     <form class="form" action="<?php echo ADMIN_URL . 'proizvodi/dodajPodkategoriju'; ?>" method="post">
-        <label for="name">Naziv:</label> <input type="text" id="name" name="name" />
-        <label for="active">Status:</label>
+        <label for="name">Название:</label> <input type="text" id="name" name="name" />
+        <label for="active">Статус:</label>
         <select name="active" >
         <option value=""> - - - - - </option>
-        <option name="active" value="1">Aktivan</option>
-        <option name="active" value="0">Neaktivan</option>
+        <option name="active" value="1">Активна</option>
+        <option name="active" value="0">Неактивна</option>
         </select> <br/>
-        <label for="fk_category_id">Kategorija:</label> 
+        <label for="fk_category_id">Категория:</label>
         <select name="fk_category_id" >
         <option value=""> - - - - - </option>
         <?php
@@ -42,7 +42,7 @@
         }
         ?>
         </select> <br/>
-        <button class='button' type="submit" value="Dodaj" >DODAJ</button>
+        <button class='button' type="submit" value="Dodaj" >ДОБАВИТЬ</button>
     </form>
 
 </div>
@@ -50,10 +50,10 @@
     <table class="table-responsive mt15" border="1">
         <tr>
             <td>ID</td>
-            <td>Naziv</td>
-            <td>Status</td>
-            <td>Izmeni</td>
-            <td>Obriši</td>
+            <td>Название</td>
+            <td>Статус</td>
+            <td>Изменить</td>
+            <td>Удалить</td>
         </tr>
         <?php
         foreach ($this->podkategorije as $subCategory) {
@@ -61,12 +61,12 @@
             echo '<td>' . $subCategory['sub_category_id'] . '</td>';
             echo '<td>' . $subCategory['name'] . '</td>';
             if ($subCategory['active'] > 0){
-                echo '<td>Aktivna</td>'; 
+                echo '<td>Активна</td>';
             }else{
-                echo '<td>Neaktivna</td>';
+                echo '<td>Неактивна</td>';
             }
-            echo '<td><a href="' . ADMIN_URL .'proizvodi/izabranaPodkategorija/' . $subCategory['sub_category_id'] . '" title="Izmeni kategoriju">Izmeni</a></td>';
-            echo '<td><a href="' . ADMIN_URL .'proizvodi/obrisiPodkategoriju/' . $subCategory['sub_category_id'] . '" title="Obrisi kategoriju" onclick="return confirm(\'Da li ste sigurni da zelite da izbrisete?\');"  ><img src="' . URL . 'images/delete.png" /></a></td>';
+            echo '<td><a href="' . ADMIN_URL .'proizvodi/izabranaPodkategorija/' . $subCategory['sub_category_id'] . '" title="Изменить категорию">Изменить</a></td>';
+            echo '<td><a href="' . ADMIN_URL .'proizvodi/obrisiPodkategoriju/' . $subCategory['sub_category_id'] . '" title="Удалить категорию" onclick="return confirm(\'Вы уверены, что хотите удалить?\');"  ><img src="' . URL . 'images/delete.png" /></a></td>';
             echo '</tr>';
         }
         ?>

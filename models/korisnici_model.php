@@ -1,6 +1,6 @@
 <?php
 Class Korisnici_Model extends Model{
-    
+
     public function userAdd($user) {
         $registrationDate = time();
 
@@ -12,8 +12,9 @@ Class Korisnici_Model extends Model{
         if ($result->rowCount() > 0) {
             return false;
         }
+		// var_dump($_POST);
 
-        $sql = "INSERT INTO users` (`login`, `password`, `email`, `first_name`, `last_name`, `address`, `phone`, `registration_date`, `active`, `email_code`, `fk_group_id`)
+		$sql = "INSERT INTO `users` (`login`, `password`, `email`, `first_name`, `last_name`, `address`, `phone`, `registration_date`, `active`, `email_code`, `fk_group_id`)
                 VALUES (:login, :password, :email, :first_name, :last_name, :address, :phone, :reg_date, :active, :email_code, :fk_group_id)";
         $result = $this->db->prepare($sql);
         if($result->execute(array(':login' => $user['login'],
@@ -29,10 +30,12 @@ Class Korisnici_Model extends Model{
                                ':fk_group_id' => 2
                                )
                         ) == true) {
-                            
+
         $sql='UPDATE `groups` SET `number_of_users`= number_of_users+1 WHERE `group_id`=2';
         $this->db->query($sql);}
         return true;
+
+		//var_dump($_POST);
     }
 
     public function loginCheck($login, $password) {
@@ -40,7 +43,7 @@ Class Korisnici_Model extends Model{
 
         $sql = "SELECT `user_id`, `login`, `password`, `email`, `first_name`, `last_name`, `address`, `phone`, `registration_date`, `active`, `email_code`, `fk_group_id`
                 FROM `users`
-                WHERE `login` = '$login' AND `password` = '$password' AND `active` = 1 
+                WHERE `login` = '$login' AND `password` = '$password' AND `active` = 1
                 LIMIT 1";
         $result = $this->db->query($sql);
         if ($result->rowCount() > 0) {
@@ -56,9 +59,9 @@ Class Korisnici_Model extends Model{
         } else {
             return false;
         }
-            
+
     }
-    
+
     public function userActivate($code) {
         $sql = "UPDATE `users` SET `active` = 1, `email_code` = ''
                 WHERE `email_code` = '$code'

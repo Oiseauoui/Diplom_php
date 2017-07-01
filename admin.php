@@ -1,7 +1,9 @@
 <?php
+error_reporting(E_ALL);
+
 
 session_start();
-session_name('_admin');
+session_name('oiseauoui_admin');
 
 require 'config.php';
 require LIBS.'Database.php';
@@ -14,5 +16,4 @@ require LIBS.'Admin_Model.php';
 //var_dump($_GET['url']);
 //die();
 
-$stgeorge = new Router('admin');
-?>
+$oiseauoui = new Router('admin');

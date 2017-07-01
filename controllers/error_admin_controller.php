@@ -1,5 +1,6 @@
 <?php
 
+
 class Error_Admin_Controller extends Admin_Controller {
     
     public function index(){

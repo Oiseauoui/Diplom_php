@@ -1,4 +1,5 @@
 <?php
+
 class Error_Controller extends Controller {
     
     function index(){

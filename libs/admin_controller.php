@@ -14,9 +14,9 @@ class Admin_Controller {
         if (file_exists($path)) {
             include $path;
 
-            $modelName = ucfirst($name).'_Admin_Model';
+            $modelName = ucfirst($name).'_admin_model';
             $this->model = new $modelName();
-        } 
+        }
     }
 
 }

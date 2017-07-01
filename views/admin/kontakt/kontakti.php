@@ -1,23 +1,23 @@
 <div class="col-xs-12 col-sm-9 col-md-10">
     <section class='content'>
         <p class="title1">КОНТАКТЫ</p>
-       
-<?php if(!empty($_GET['poruka']) && $_GET['poruka'] == 'uspešan_odgovor'): ?>
+
+<?php if(!empty($_GET['poruka']) && $_GET['poruka'] == 'uspean_odgovor'): ?>
 <p style="color: red">Вы успешно ответили на этот вопрос !</p>
 <?php endif;?>
 
   <form class='form' action="<?php echo ADMIN_URL . 'kontakt'; ?>" method="get">
          <select name="replied">
-                        <option value=""> Odgovor </option>
-                        <option value="DA" <?php echo $this->replied == 'DA' ? ' selected' : ''; ?> >   DA  </option>
-                        <option value="NE" <?php echo $this->replied == 'NE' ? ' selected' : ''; ?> >   NE  </option>
-                           
+                        <option value=""> Ответить </option>
+                        <option value="Да" <?php echo $this->replied == 'ДА' ? ' selected' : ''; ?> >   ДА </option>
+                        <option value="НЕТ" <?php echo $this->replied == 'НЕТ' ? ' selected' : ''; ?> >   НЕТ </option>
+
          </select><br>
-        Pretraga: <input type="text" name="search" value="<?php  echo $this->search; ?>"/>
+        Поиск <input type="text" name="search" value="<?php  echo $this->search; ?>"/>
         <button class="button" type="submit">OK</button>
   </form><br>
 
-    <?php                           
+    <?php
         if($this->contacts['contactsNumber']>0){
     ?>
     <table class="table-responsive mt15" border="1">
@@ -43,30 +43,31 @@
             echo '<td>' . date('H:i:s d/m/Y', $contact['create_date']) . '</td>';
             if($contact['replied'] == '0'){
             echo '<td>NE</td>';
-            } 
+            }
             if($contact['replied'] == '1'){
             echo '<td>DA</td>';
-            } 
+            }
             if($contact['replied_date']!= 0){
-            echo '<td>' . date('H:i:s d/m/Y', $contact['replied_date']) . '</td>';
+				echo '<td>' . date('H:i:s d/m/Y',
+							   $contact['replied_date']) . '</td>';
             } else {
             echo '<td> ---- </td>';
             }
             echo '<td><a href="' . ADMIN_URL .'kontakt/odgovori/' . $contact['contact_id'] . '">Ответить</a></td>';
-            echo '<td><a href="' . ADMIN_URL .'kontakt/obrisiKontakt?contact_id=' . $contact['contact_id'] . '" title="Obrisi kontakt" onclick="return confirm(\'Вы уверены, что хотите удалить?\');" ><img src="' . URL . 'images/delete.png" /></a></td>';
+            echo '<td><a href="' . ADMIN_URL .'kontakt/obrisiKontakt?contact_id=' . $contact['contact_id'] . '" title="Удалить контакт" onclick="return confirm(\'Вы уверены, что хотите удалить?\');" ><img src="' . URL . 'images/delete.png" /></a></td>';
             echo '</tr>';
         }
         ?>
     </table>
-    
+
     <?php
         } else{
          echo   '<h3 style="color:red">Нет контакта!</h3><br>';
         }
     ?>
-    
+
     <br>
-    
+
      <?php if ($this->pagesCount > 1) { ?>
         <ul class="pagination">
             <?php for ($i = 1; $i <= $this->pagesCount; $i++) { ?>

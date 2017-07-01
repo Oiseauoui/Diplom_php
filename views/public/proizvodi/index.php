@@ -62,9 +62,9 @@
                 <div class='search'>
                     <form action='<?php echo $this->paginationUrl ?>' method='get'>
                         <input type='text' class='trazi' name='pretraga' value='<?php echo $this->search; ?>'
-                         placeholder="Поиск по типу или цвету"/>
+                         placeholder="Поиск по типу "/>
                         <button class='btnsearch' type='submit'><span class="glyphicon glyphicon-search"></span></button>
-                    </form>    
+                    </form>
                 </div>
             </div>
             <div class='col-xs-12  col-sm-9  col-md-10 col-lg-10'>
@@ -78,7 +78,7 @@
                             <li>
                                 <div class="hvrdiv">
                                     <a class="button" href="<?php echo $itemUrl; ?>">ПОДРОБНЕЕ</a>
-                                </div> 
+                                </div>
                                 <div class="item_thumb">
                                     <?php if (!empty($item['image'])) { ?>
                                         <a href="<?php echo $itemUrl; ?>"><img src="<?php echo $item['images']['160x160'] ?>" alt="no image"></a>
@@ -93,10 +93,10 @@
                             </li>
                         <?php endforeach; ?>
                     </ul>
-                </div>  
+                </div>
                 <!-- Kraj prikaza proizvoda -->
-            </div>  
-        </div> 
+            </div>
+        </div>
         <div class='row'>
             <div class='col-lg-12'>
                 <!-- Paginacija -->
@@ -115,14 +115,14 @@
                                     if ($i == $this->currentPage) {
                                         echo 'class="current"';
                                     }
-                                    ?>   
+                                    ?>
                                         href="<?php echo $this->paginationUrl . '&page=' . $i . '&pretraga=' . $this->searchParam ?>"><?php echo $i; ?></a>
-                                </li>          
+                                </li>
                             <?php } ?>
 
                             <?php if ($page != $this->pagesCount) { ?>
                                 <li><a href="<?php echo $this->paginationUrl . '&page=' . ($page + 1) . '&pretraga=' . $this->searchParam ?>">></a></li>
-                            <?php } ?>   
+                            <?php } ?>
                         </ul>
 
                     <?php } else { ?>
@@ -133,14 +133,14 @@
                                     if ($i == $this->currentPage) {
                                         echo 'class="current"';
                                     }
-                                    ?>   
+                                    ?>
                                         href="<?php echo $this->paginationUrl . '&page=' . $i . '&pretraga=' . $this->searchParam ?>"><?php echo $i; ?></a>
                                 </li>
 
                             <?php } ?>
                         </ul>
                     <?php } ?>
-                </div> 
+                </div>
                 <!-- Kraj paginacije -->
             </div>
         </div>

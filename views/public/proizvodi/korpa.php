@@ -7,12 +7,12 @@
                 if (!empty($_GET['msg']) && $_GET['msg'] == 'uspesno') {
                     echo '<h3 style="color:red">Форма заказа отправлна. Благодарим Вас за доверие, оказанное нам!</h3><br>';
                 }
-                ?>  
+                ?>
 
                 <?php
                 if ($this->itemsCount > 0) :
                     ?>
-                    <h1>KORPA</h1>
+                    <h1>Корзина</h1>
                     <div class="table-responsive korpa">
                         <table  class='table table-hover'>
                             <tr>
@@ -30,9 +30,9 @@
                                 <tr>
                                     <td><img src="<?php echo $item['image'] ?>" alt='<?php echo $item['title'] ?>'/><span><?php echo $item['title'] ?></span></td>
                                     <td><?php echo $item['kolicina'] ?></td>
-                                    <td><?php echo number_format($item['price'], 2, ',', '.') ?> RSD</td>
-                                    <td><?php echo number_format(($item['price'] * $item['kolicina']), 2, ',', '.'); ?> RSD</td>
-                                    <td><a  style="color:#EF81B1;" href="<?php echo URL . 'proizvodi/obrisiIzKorpe/' . $rb; ?>"><img src='<?php echo URL . 'images/delete.png' ?>' alt='delete'></a></td>
+                                    <td><?php echo number_format($item['price'], 2, ',', '.') ?> грн. </td>
+                                    <td><?php echo number_format(($item['price'] * $item['kolicina']), 2, ',', '.'); ?> грн. </td>
+                                    <td><a  style="color:#EF81B1;" href="<?php echo URL . 'proizvodi/obrisiIzKorpe/' . $rb; ?>"><img src='<?php echo URL . 'images/delete.png' ?>' alt='удалить'></a></td>
                                     <?php $sumPrice += $item['price'] * $item['kolicina']; ?>
                                     <?php $broj+=$item['kolicina']; ?>
                                 </tr>
@@ -42,8 +42,8 @@
 
                         <?php $cena = number_format($sumPrice, 2, ',', '.') ?>
                         <p class="brproiz">Количество товаров в корзине:<?php echo $broj; ?></p>
-                        <p class='korpaCena'>Общая стоимость:<?php echo $cena; ?>  RSD</p>
-                        <a class="button right naruci" href="<?php echo URL . 'proizvodi/naruci?id=' . $_SESSION['user_id'] . '&broj=' . $broj . '&cena=' . $sumPrice ?>">Naruči</a>
+                        <p class='korpaCena'>Общая стоимость:<?php echo $cena; ?>  грн. </p>
+                        <a class="button right naruci" href="<?php echo URL . 'proizvodi/naruci?id=' . $_SESSION['user_id'] . '&broj=' . $broj . '&cena=' . $sumPrice ?>">Заказать</a>
 
                         <?php
                     else :

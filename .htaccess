@@ -1,10 +1,18 @@
-Options +FollowSymLinks
+Options +SymLinksIfOwnerMatch
 RewriteEngine On
-RewriteBase //
+RewriteBase /
+#Redirect 301 /main http://oiseauoui.info/
 
-RewriteRule ^admin2$ admin.php?url=$1 [QSA,L]
-RewriteRule ^admin2/(.*)$ admin.php?url=$1 [QSA,L]
+
+
+RewriteRule ^admin$ admin.php?url=$1 [QSA,L]
+RewriteRule ^admin/(.*)$ admin.php?url=$1 [QSA,L]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+
+ErrorDocument 404 /error/404.php
+#Удаляем category из URL
+RewriteRule ^category/(.+)$ http://www.oiseauoui.info/$1 [R=301,L]

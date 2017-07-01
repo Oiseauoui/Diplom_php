@@ -7,9 +7,9 @@
             <label for='shop'>Измените другой заголовок:</label><input type="text" id='shop' name ="shop" value="<?php echo $this->slide['shop'];?>"/><br>
             <img width="200"   src="<?php echo URL . 'images/home/' . $this->slide['image']?>" alt="slider.jpg"/><br>
             <label for='image'>Выберите файл (минимум 1600x900):</label><input type="file" id='image' name="image"/><br/>
-             <button class="button" type="submit">SAČUVAJ IZMENE</button>
+             <button class="button" type="submit">СОХРАНИТЬ ИЗМЕНЕНИЯ</button>
 
         </form>
-        
+
     </section>
 </div>

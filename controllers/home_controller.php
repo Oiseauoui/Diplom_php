@@ -1,9 +1,15 @@
 <?php
 
+
+
 class Home_Controller extends Controller  {
-    
+	function __construct()
+    {
+        parent::__construct();
+    }
+
     public function index () {
-        
+
         $slider=$this->model->getSlider();
         $this->view->slider=$slider;
         $homeIt=$this->model->homeItems();
@@ -13,5 +19,5 @@ class Home_Controller extends Controller  {
     public function uputstva() {
         $this->view->render('home/uputstva.php');
     }
-    
+
 }

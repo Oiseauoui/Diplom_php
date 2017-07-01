@@ -1,8 +1,8 @@
 <table class='mt15 table-responsive'>
     <tr>
-        <th>Naslov</th>
-        <th>Cena</th>
-        <th>Količina</th>
+        <th>Название</th>
+        <th>Цена</th>
+        <th>Количество</th>
     </tr>
 <?php
     foreach ($this->purchaseDetails as $detail){
@@ -14,6 +14,4 @@
     }
 ?>
 </table>
-<button class='button'><a href="<?php echo ADMIN_URL .'kupovina/sent/' . $detail['purchase_id']?>">Poslato</a></button>
-            
-
+<button class='button'><a href="<?php echo ADMIN_URL .'kupovina/sent/' . $detail['purchase_id']?>">ОТПРАВИТЬ</a></button>

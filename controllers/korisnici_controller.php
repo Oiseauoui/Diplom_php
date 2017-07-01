@@ -4,7 +4,7 @@ class Korisnici_Controller extends Controller {
 
         public function index(){
     }
-    
+
     public function login() {
         $this->view->render('korisnici/login.php');
     }
@@ -16,8 +16,8 @@ class Korisnici_Controller extends Controller {
     public function dodajKorisnika() {
         // Metoda koja prihvata podatke o korisniku iz forme za registraciju
         // Poziva metodu iz modela koja upisuje podatke u bazu
-        // Å¡alje mejl korisniku sa aktivacionim kodom i redirektuje na templejt sa obavestenjem o uspesnoj registraciji
-        
+        // alje mejl korisniku sa aktivacionim kodom i redirektuje na templejt sa obavestenjem o uspesnoj registraciji
+
 
         if ( empty($_POST['login']) || empty($_POST['password']) || empty($_POST['email']) || empty($_POST['first_name']) || empty($_POST['last_name'])
             || empty($_POST['address']) || empty($_POST['phone']) ) {
@@ -38,16 +38,19 @@ class Korisnici_Controller extends Controller {
         $user['phone'] = $_POST['phone'];
 
         $user['email_code'] = substr(MD5(microtime()), 0, 5);
-        
+
+		//var_dump($user);
+
+
         if ($this->model->userAdd($user)) {
-            
-            require_once LIBS . 'email/swift_required.php';
+
+			/* require_once LIBS . 'email/swift_required.php';
 
             $subject = 'ONLINE SHOP - registracija';
             $from = SMTP_USER;
             $to = $user['email'];
             $body = 'Uspesno ste se registrovali! <br/>
-                     Da bi aktivirali svoj nalog kliknite <a href="' . URL . 'korisnici/aktivacijaNaloga?code=' . $user['email_code'] . '">OVDE</a>.';
+                     Da bi aktivirali svoj nalog kliknite <a href="' . URL . 'korisnici/aktivacijaNaloga?code=' . $user['email_code'] . '">здесь</a>.';
 
             // Create the Transport
             $transport = Swift_SmtpTransport::newInstance()->setHost(SMTP_SERVER);
@@ -56,7 +59,7 @@ class Korisnici_Controller extends Controller {
             $transport->setPassword(SMTP_PASSWORD);
             if (SMTP_SSL) {
                  $transport->setEncryption('ssl');
-            } 
+            }
             // Create the Mailer using your created Transport
             $mailer = Swift_Mailer::newInstance($transport);
             // Create a message
@@ -69,17 +72,20 @@ class Korisnici_Controller extends Controller {
             $message->setPriority(3);
             $message->getHeaders()->addTextHeader('User-Agent', 'Mozilla Thunderbird 1.5.0.8 (Windows/20061025)');
             // Send the message
-            $result = $mailer->send($message);
-            header("Location: " . URL . "korisnici/login?msg=hvala_sto_ste_se_registrovali");
+            $result = $mailer->send($message);*/
+
+			//var_dump( $_POST);die();
+    
+			header("Location: " . URL . "korisnici/login?msg=hvala_sto_ste_se_registrovali");
         } else {
             header('Location: ' . URL . 'korisnici/registracija?error=neuspesna_registracija');
-        }        
+        }
     }
 
     public function ulogujSe() {
         // Metoda koja prihvata podatke o korisniku iz forme za login
         // Poziva metodu iz modela koja proverava da li postoji takav korisnik i ako postoji upisuje njegove podatke u sesiju
-        
+
         if (empty($_POST['login']) || empty($_POST['password'])) {
             header('Location: ' . URL . 'korisnici/login?error=prazna_polja');
             die();

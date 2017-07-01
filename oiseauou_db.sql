@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: oiseauou.mysql.ukraine.com.ua
--- Время создания: Июл 01 2017 г., 16:47
+-- Время создания: Июл 01 2017 г., 17:24
 -- Версия сервера: 5.7.16-10-log
 -- Версия PHP: 5.6.30
 
@@ -27,12 +27,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `categories` (
-  `category_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `active` tinyint(4) NOT NULL,
   PRIMARY KEY (`category_id`),
   KEY `category_id` (`category_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Дамп данных таблицы `categories`
@@ -41,7 +41,8 @@ CREATE TABLE IF NOT EXISTS `categories` (
 INSERT INTO `categories` (`category_id`, `name`, `active`) VALUES
 (1, 'Промышленные швейные нитки', 1),
 (2, 'Нитки для розничной торговли', 1),
-(3, 'Фурнитура', 1);
+(3, 'Фурнитура', 1),
+(4, 'Прочее', 1);
 
 -- --------------------------------------------------------
 
@@ -78,21 +79,19 @@ INSERT INTO `contacts` (`contact_id`, `name`, `email`, `text`, `create_date`, `r
 --
 
 CREATE TABLE IF NOT EXISTS `groups` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `group_id` int(11) NOT NULL,
+  `group_id` int(11) NOT NULL AUTO_INCREMENT,
   `number_of_users` int(11) NOT NULL,
   `number_of_users_in_group` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `group_id` (`group_id`)
+  PRIMARY KEY (`group_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Дамп данных таблицы `groups`
 --
 
-INSERT INTO `groups` (`id`, `group_id`, `number_of_users`, `number_of_users_in_group`) VALUES
-(1, 1, 1, 0),
-(2, 2, 7, 0);
+INSERT INTO `groups` (`group_id`, `number_of_users`, `number_of_users_in_group`) VALUES
+(1, 1, 0),
+(2, 7, 0);
 
 -- --------------------------------------------------------
 
@@ -151,8 +150,7 @@ CREATE TABLE IF NOT EXISTS `items` (
   `fk_sub_category_id` int(11) NOT NULL,
   PRIMARY KEY (`item_id`),
   KEY `fk_category_id` (`fk_category_id`),
-  KEY `fk_sub_category_id` (`fk_sub_category_id`),
-  KEY `title` (`title`)
+  KEY `fk_sub_category_id` (`fk_sub_category_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
@@ -186,10 +184,6 @@ CREATE TABLE IF NOT EXISTS `items_to_purchases` (
 --
 
 INSERT INTO `items_to_purchases` (`id`, `fk_purchase_id`, `fk_item_id`, `number`, `price`) VALUES
-(1, 0, 1, 1, '69'),
-(2, 0, 1, 1, '69'),
-(3, 0, 1, 1, '69'),
-(4, 0, 1, 1, '69'),
 (5, 2, 1, 1, '69'),
 (6, 2, 1, 1, '69'),
 (7, 3, 1, 1, '69'),
@@ -264,14 +258,13 @@ INSERT INTO `purchases` (`purchase_id`, `fk_user_id`, `amount`, `purchase_date`,
 --
 
 CREATE TABLE IF NOT EXISTS `sub_categories` (
-  `sub_category_id` int(11) NOT NULL,
+  `sub_category_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `active` tinyint(4) NOT NULL,
   `fk_category_id` int(11) NOT NULL,
   PRIMARY KEY (`sub_category_id`),
-  KEY `fk_category_id` (`fk_category_id`),
-  KEY `sub_category_id` (`sub_category_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `fk_category_id` (`fk_category_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Дамп данных таблицы `sub_categories`
@@ -280,7 +273,8 @@ CREATE TABLE IF NOT EXISTS `sub_categories` (
 INSERT INTO `sub_categories` (`sub_category_id`, `name`, `active`, `fk_category_id`) VALUES
 (1, 'Arianna', 1, 1),
 (2, 'LUTS', 1, 2),
-(3, 'Бисер', 1, 3);
+(3, 'Бисер', 1, 3),
+(4, 'Мулине', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -320,23 +314,29 @@ INSERT INTO `users` (`user_id`, `login`, `password`, `first_name`, `last_name`, 
 --
 
 --
--- Ограничения внешнего ключа таблицы `items`
+-- Ограничения внешнего ключа таблицы `items_to_purchases`
 --
-ALTER TABLE `items`
-  ADD CONSTRAINT `items_ibfk_1` FOREIGN KEY (`fk_category_id`) REFERENCES `categories` (`category_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `items_ibfk_2` FOREIGN KEY (`fk_sub_category_id`) REFERENCES `sub_categories` (`sub_category_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `items_to_purchases`
+  ADD CONSTRAINT `items_to_purchases_ibfk_1` FOREIGN KEY (`fk_item_id`) REFERENCES `items` (`item_id`),
+  ADD CONSTRAINT `items_to_purchases_ibfk_2` FOREIGN KEY (`fk_purchase_id`) REFERENCES `purchases` (`purchase_id`);
+
+--
+-- Ограничения внешнего ключа таблицы `purchases`
+--
+ALTER TABLE `purchases`
+  ADD CONSTRAINT `purchases_ibfk_1` FOREIGN KEY (`fk_user_id`) REFERENCES `users` (`user_id`);
 
 --
 -- Ограничения внешнего ключа таблицы `sub_categories`
 --
 ALTER TABLE `sub_categories`
-  ADD CONSTRAINT `sub_categories_ibfk_1` FOREIGN KEY (`fk_category_id`) REFERENCES `categories` (`category_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `sub_categories_ibfk_1` FOREIGN KEY (`fk_category_id`) REFERENCES `categories` (`category_id`);
 
 --
 -- Ограничения внешнего ключа таблицы `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`fk_group_id`) REFERENCES `groups` (`group_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`fk_group_id`) REFERENCES `groups` (`group_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

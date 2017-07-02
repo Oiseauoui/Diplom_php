@@ -62,7 +62,7 @@
                 <div class='search'>
                     <form action='<?php echo $this->paginationUrl ?>' method='get'>
                         <input type='text' class='trazi' name='pretraga' value='<?php echo $this->search; ?>'
-                         placeholder="Поиск по типу "/>
+                         placeholder="Поиск по типу цвету"/>
                         <button class='btnsearch' type='submit'><span class="glyphicon glyphicon-search"></span></button>
                     </form>
                 </div>

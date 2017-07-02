@@ -74,7 +74,7 @@ if (!empty($_GET['poruka']) && $_GET['poruka'] == 'postoji') {
             <td><?php echo $korisnik ['last_name'] ?></td>
             <td><?php echo $korisnik ['address'] ?></td>
             <td><?php echo $korisnik ['phone'] ?></td>
-            <td><?php echo date("d.m.Y H:i", $korisnik ['registration_date']) ?></td>
+            <td><?php echo date('Y-m-d H:i:s', strtotime(str_replace('-','/', $korisnik ['registration_date']))) ?></td>
             <td><?php if ($korisnik ['active'] > 0) {
         echo 'Активен';
     } else {

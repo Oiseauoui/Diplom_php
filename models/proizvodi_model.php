@@ -107,6 +107,7 @@ class Proizvodi_Model extends Model {
     }
     public function getItemImages($itemSubId) {
         //metoda koja vadi iz baze sve slike jedne podkategorije
+       // Здесь  отображаются картинки на страницы товары
         $itemImages = array();
         $sql = "SELECT `image`, `item_id`  FROM `items` WHERE `fk_sub_category_id` = '$itemSubId'";
         $result = $this->db->query($sql);
@@ -115,7 +116,7 @@ class Proizvodi_Model extends Model {
                 if (!empty($rs['image'])) {
                     // u bazi cuvamo samo kranje ime slike sa ekstenzijom zato moramo da dodamo celu putanju do slike
                     $rs['images']['160x160'] = URL . 'images/' . $rs['item_id'] . '/160x160_' . $rs['image'];
-
+//echo $rs; die();
                 }
                 $itemImages[] = $rs;
             }

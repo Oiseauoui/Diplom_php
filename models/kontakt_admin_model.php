@@ -46,10 +46,10 @@ class Kontakt_Admin_Model extends Kontakt_Model {
         }
 
         $where = '';
-        if (!empty($replied) && $replied == 'DA') {
+        if (!empty($replied) && $replied == 'ДА') {
             $where = " WHERE `replied` = '1' ";
         }
-        if (!empty($replied) && $replied == 'NE') {
+        if (!empty($replied) && $replied == 'НЕТ') {
             $where = " WHERE `replied` = '0' ";
         }
         

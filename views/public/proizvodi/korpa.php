@@ -12,7 +12,9 @@
                 <?php
                 if ($this->itemsCount > 0) :
                     ?>
+
                     <h1>Корзина</h1>
+
                     <div class="table-responsive korpa">
                         <table  class='table table-hover'>
                             <tr>
@@ -57,7 +59,7 @@
                     ?>
 
                 </div>
-            </div>
+            </>
         </div>
     </div>
 </section>

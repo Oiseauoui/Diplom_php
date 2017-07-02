@@ -8,10 +8,10 @@ define('BASE_PATH', $basePath);
 define('LIBS',BASE_PATH.'libs/');
 
 define('DB_TYPE','mysql');
-define('DB_HOST','oiseauou.ftp.ukraine.com.ua');
-define('DB_NAME','oiseauou_db');
-define('DB_USER','oiseauou_db');
-define('DB_PASS','a3bzv8ws');
+define('DB_HOST','localhost');
+define('DB_NAME','oiseauou');
+define('DB_USER','root');
+define('DB_PASS','');
 
 define('SMTP_SERVER', '');
 define('SMTP_USER', '');

@@ -71,6 +71,11 @@ class Proizvodi_Controller extends Controller {
         $categories = $this->model->getCategories();
         $this->view->kategorije = $categories;
 
+        $search = !empty($_GET['pretraga']) ? $_GET['pretraga'] : '';
+        $this->view->searchParam = !empty($search) ? '&pretraga=' . $search : '';
+        $this->view->search = $search;
+
+
         $subCategories=$this->model->getSubCategories();
         $this->view->podkategorije=$subCategories;
 
@@ -111,7 +116,8 @@ class Proizvodi_Controller extends Controller {
             }
     }
     public function korpa() {
-      // metoda koja se poziva kada se klikne na korpu
+
+        // metoda koja se poziva kada se klikne na korpu
 
         // ako korpa nije prazna brojimo koliko proizvoda ima u njoj
         if(!empty($_SESSION['korpa'])){
@@ -127,14 +133,18 @@ class Proizvodi_Controller extends Controller {
         }
 
             $this->view->render('proizvodi/korpa.php');
-		
-		
+
+
 		// exit();
 
 
     }
 
     public function naruci() {
+        $search = !empty($_GET['pretraga']) ? $_GET['pretraga'] : '';
+        $this->view->searchParam = !empty($search) ? '&pretraga=' . $search : '';
+        $this->view->search = $search;
+
         $id=$_GET['id'];
         $cena=$_GET['cena'];
         $broj=$_GET['broj'];

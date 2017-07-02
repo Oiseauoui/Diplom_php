@@ -40,16 +40,16 @@
             echo '<td>' . $contact['name'] . '</td>';
             echo '<td>' . $contact['email'] . '</td>';
             echo '<td>' . $contact['text'] . '</td>';
-            echo '<td>' . date('H:i:s d/m/Y', $contact['create_date']) . '</td>';
+            echo '<td>' .date('Y-m-d H:i:s', strtotime(str_replace('-','/', $contact['create_date']))) . '</td>';
             if($contact['replied'] == '0'){
-            echo '<td>NE</td>';
+            echo '<td>НЕТ</td>';
             }
             if($contact['replied'] == '1'){
-            echo '<td>DA</td>';
+            echo '<td>ДА</td>';
             }
             if($contact['replied_date']!= 0){
-				echo '<td>' . date('H:i:s d/m/Y',
-							   $contact['replied_date']) . '</td>';
+				echo '<td>' . date('Y-m-d H:i:s', strtotime(str_replace('-','/',
+							   $contact['replied_date']))) . '</td>';
             } else {
             echo '<td> ---- </td>';
             }

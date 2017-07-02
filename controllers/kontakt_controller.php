@@ -16,12 +16,12 @@ class Kontakt_Controller extends Controller
             header('Location: ' . URL . 'kontakt?poruka=emailneispravan');
             die();
         }
-
+var_dump($_POST);
         $name=$_POST['name'];
         $email=$_POST['email'];
         $text=$_POST['text'];
 
-        if ($this->model->Contact($name,$email,$text)) {
+        if ($this->model->Contact($name, $email, $text)) {
             header('Location: ' . URL . 'kontakt?poruka=poslataporuka');
             die();
         }else {

@@ -2,7 +2,8 @@
 <div class='container-fluid'>   
     <div class='row'>
         <button class='kateg visible-xs'><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>ТОВАРЫ</button>
-        <div class='col-xs-12 col-sm-3 col-md-2 col-lg-2'>           
+
+        <div class='col-xs-12 col-sm-3 col-md-2 col-lg-2'>
             <div class='ktg'>
                 <ul class='list'>
                     <li class='kategorije'>Категории</li>
@@ -14,7 +15,7 @@
                                 echo 'class="active"';
                             }
                             ?>
-                                href="<?php echo URL . 'proizvodi/kategorija?cid=' . $category['category_id'] ?>"> <?php echo $category['name'] ?> </a>
+                            href="<?php echo URL . 'proizvodi/kategorija?cid=' . $category['category_id'] ?>"> <?php echo $category['name'] ?> </a>
                             <ul class='sub_categories_list'>
                                 <?php
                                 foreach ($this->podkategorije as $subCategory) {
@@ -38,15 +39,27 @@
                         </li>
                     <?php } ?>
                 </ul>
+
             </div>
+
     <!-- Kraj meni -->
         </div>
+
         <div class='col-xs-12 col-sm-9 col-md-10 col-lg-10'>
-            <div class='item-nav'>
-                <h3><?php echo $categoryName . '/' . $this->item['title'] ?> </h3>
+            <div class='search'>
+                <div class='item-nav'>
+                    <form action='<?php echo $this->paginationUrl ?>' method='get'>
+                        <input type='text' class='trazi' name='pretraga' value='<?php echo $this->search; ?>'
+                               placeholder="Поиск по типу цвету"/>
+                        <button class='btnsearch' type='submit'><span class="glyphicon glyphicon-search"></span></button>
+
+                        <h3><?php echo $categoryName . '/' . $this->item['title'] ?> </h3>
                 <hr>
-            </div>
+                    </form>
+                </div>
         </div>
+        </div>
+
         <div class="col-xs-12 col-sm-6 col-md-5">
             <div class="item_image_big">
                 <?php if (!empty($this->item['image'])) { ?>
@@ -56,6 +69,8 @@
                 <?php } ?>
             </div>
         </div>
+
+
         <!-- Opis proizvoda -->
         <div class='col-xs-12 col-sm-3 col-md-5'>
             <div class="item-desc">
@@ -90,11 +105,11 @@
                         <?php } ?>   
                     <?php } ?>
 
-
-
                 </div>
             </div>
         </div>
+
+
         <!-- Kraj opisa proizvoda -->
         <!-- Ostale boje proizvoda -->
         <div class='col-sm-9 col-md-10 hidden-xs'>   

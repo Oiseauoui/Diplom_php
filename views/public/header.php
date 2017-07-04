@@ -34,7 +34,7 @@
                     <div class="header_login navbar-right">
                         <span class='nameLog'><?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name']; ?></span>
                         <br>
-                        <a href="<?php echo URL . 'proizvodi/korpa' ?>" ><span class='glyphicon glyphicon-shopping-cart'>
+                        <a href="<?php echo URL . 'products/cart' ?>" ><span class='glyphicon glyphicon-shopping-cart'>
 							</span> : <span class="priceLog">
                     <?php
                         $priceSum = 0;
@@ -56,20 +56,20 @@
                 <li><a <?php if (!empty($this->controllerName) && $this->controllerName == 'home') {
                 echo 'class="active"';
                 } ?> href="<?php echo URL . 'home' ?>">ГЛАВНАЯ</a></li>
-                <li><a  <?php if (!empty($this->controllerName) && $this->controllerName == 'proizvodi') {
+                <li><a  <?php if (!empty($this->controllerName) && $this->controllerName == 'products') {
                 echo 'class="active"';
-                } ?> href="<?php echo URL . 'proizvodi' ?>">ТОВАРЫ</a></li>
-                <li><a <?php if (!empty($this->controllerName) && $this->controllerName == 'kontakt') {
+                } ?> href="<?php echo URL . 'products' ?>">ТОВАРЫ</a></li>
+                <li><a <?php if (!empty($this->controllerName) && $this->controllerName == 'contact') {
                 echo 'class="active"';
-                } ?> href="<?php echo URL . 'kontakt' ?>">КОНТАКТЫ</a></li>
+                } ?> href="<?php echo URL . 'contact' ?>">КОНТАКТЫ</a></li>
                 <?php if (!empty($_SESSION['user_id'])) { ?>
-                <li><a <?php if (!empty($this->controllerName) && $this->controllerName == 'korisnici') {
+                <li><a <?php if (!empty($this->controllerName) && $this->controllerName == 'users') {
                 echo 'class="active"';
-                } ?> href="<?php echo URL . 'korisnici/logout' ?>">ВЫЙТИ</a></li>
+                } ?> href="<?php echo URL . 'users/logout' ?>">ВЫЙТИ</a></li>
                 <?php } else { ?>
-                <li><a <?php if (!empty($this->controllerName) && $this->controllerName == 'korisnici') {
+                <li><a <?php if (!empty($this->controllerName) && $this->controllerName == 'users') {
                 echo 'class="active"';
-                } ?> href="<?php echo URL . 'korisnici/login' ?>">ВОЙТИ</a></li>
+                } ?> href="<?php echo URL . 'users/login' ?>">ВОЙТИ</a></li>
                 <?php } ?>
             </ul>
         </div>

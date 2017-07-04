@@ -30,9 +30,9 @@
 
                             <?php } ?>
                              <?php if (!empty($_SESSION['user_id'])): ?>
-                            <a <?php if (!empty($this->activeNavigation) && $this->activeNavigation == 'logout') { echo 'class="active"' ; } ?> href="<?php echo ADMIN_URL . 'korisnici/logout' ?>">Выйти</a>
+                            <a <?php if (!empty($this->activeNavigation) && $this->activeNavigation == 'logout') { echo 'class="active"' ; } ?> href="<?php echo ADMIN_URL . 'users/logout' ?>">Выйти</a>
                             <?php else: ?>
-                            <a <?php if (!empty($this->activeNavigation) && $this->activeNavigation == 'login') { echo 'class="active"' ; } ?> href="<?php echo ADMIN_URL . 'korisnici/login' ?>">Войти</a>
+                            <a <?php if (!empty($this->activeNavigation) && $this->activeNavigation == 'login') { echo 'class="active"' ; } ?> href="<?php echo ADMIN_URL . 'users/login' ?>">Войти</a>
                             <?php endif ?>
                             </div>
                         </div>
@@ -46,15 +46,15 @@
                 <div class="ktg">
                 <ul class="admin_meni">
                     <li><a <?php if (!empty($this->activeNavigation) && $this->activeNavigation == 'home') { echo 'class="active"' ; } ?> href="<?php echo ADMIN_URL . 'home' ?>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><br>Домашняя страница</a></li>
-                    <li><a <?php if (!empty($this->activeNavigation) && $this->activeNavigation == 'kategorije') { echo 'class="active"' ; } ?> href="<?php echo ADMIN_URL . 'proizvodi/kategorije' ?>"><span class="glyphicon glyphicon-list-alt" aria-hidden="true">
+                    <li><a <?php if (!empty($this->activeNavigation) && $this->activeNavigation == 'category') { echo 'class="active"' ; } ?> href="<?php echo ADMIN_URL . 'products/category' ?>"><span class="glyphicon glyphicon-list-alt" aria-hidden="true">
 						</span><br>Категории</a></li>
-                    <li><a <?php if (!empty($this->activeNavigation) && $this->activeNavigation == 'podkategorije') { echo 'class="active"' ; } ?> href="<?php echo ADMIN_URL . 'proizvodi/podkategorije' ?>"><span class="glyphicon glyphicon-tasks" aria-hidden="true">
+                    <li><a <?php if (!empty($this->activeNavigation) && $this->activeNavigation == 'subcategory') { echo 'class="active"' ; } ?> href="<?php echo ADMIN_URL . 'products/subcategory' ?>"><span class="glyphicon glyphicon-tasks" aria-hidden="true">
 						</span><br>Подкатегории</a></li>
-                    <li><a <?php if (!empty($this->activeNavigation) && $this->activeNavigation == 'proizvodi') { echo 'class="active"' ; } ?> href="<?php echo ADMIN_URL . 'proizvodi' ?>"><span class="glyphicon glyphicon-home" aria-hidden="true">
+                    <li><a <?php if (!empty($this->activeNavigation) && $this->activeNavigation == 'products') { echo 'class="active"' ; } ?> href="<?php echo ADMIN_URL . 'products' ?>"><span class="glyphicon glyphicon-home" aria-hidden="true">
 						</span><br>Продукция</a></li>
-                    <li><a <?php if (!empty($this->activeNavigation) && $this->activeNavigation == 'kontakt') { echo 'class="active"' ; } ?> href="<?php echo ADMIN_URL . 'kontakt' ?>"><span class="glyphicon glyphicon-envelope" aria-hidden="true">
+                    <li><a <?php if (!empty($this->activeNavigation) && $this->activeNavigation == 'contact') { echo 'class="active"' ; } ?> href="<?php echo ADMIN_URL . 'contact' ?>"><span class="glyphicon glyphicon-envelope" aria-hidden="true">
 						</span><br>Контакты</a></li>
-                    <li><a <?php if (!empty($this->activeNavigation) && $this->activeNavigation == 'korisnici') { echo 'class="active"' ; } ?> href="<?php echo ADMIN_URL . 'korisnici' ?>"><span class="glyphicon glyphicon-user" aria-hidden="true">
+                    <li><a <?php if (!empty($this->activeNavigation) && $this->activeNavigation == 'users') { echo 'class="active"' ; } ?> href="<?php echo ADMIN_URL . 'users' ?>"><span class="glyphicon glyphicon-user" aria-hidden="true">
 						</span><br>Пользователи</a></li>
                     <li><a <?php if (!empty($this->activeNavigation) && $this->activeNavigation == 'kupovina') { echo 'class="active"' ; } ?> href="<?php echo ADMIN_URL . 'kupovina' ?>"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">
 						</span><br>Покупки</a></li>

@@ -37,7 +37,7 @@ class Router {
 		//echo $access; exit(); // проверяем роль public или admin
 
         // ako zahtevamo admin stranicu a sesija nije postavljena router nas vodi na login admin stranicu
-        if ( $access == 'admin' && empty($_SESSION['user_id']) && $Function != 'login' && $Function != 'ulogujSe' ) {
+        if ( $access == 'admin' && empty($_SESSION['user_id']) && $Function != 'login' && $Function != 'role' ) {
 			//header('Location: ' . ADMIN_URL . 'korisnici/login');
 			// echo $access; exit(); die();
 
@@ -48,7 +48,7 @@ class Router {
         elseif ( $access == 'admin' && !empty($_SESSION['user_id']) && (empty($_SESSION['group_id']) || $_SESSION['group_id'] != 1) ) {
 			unset($_SESSION);
 			session_destroy();
-			header('Location: ' . ADMIN_URL . 'korisnici/login');
+			header('Location: ' . ADMIN_URL . 'users/login');
             die();
         }
 
@@ -57,7 +57,7 @@ class Router {
         if (file_exists($file)) {
             require $file;
 
-			//echo $file; exit();
+				//echo $file; exit();
 
            $controllerName = ucfirst($Controller) . $adminPrefix . '_controller';
            //$controllerName = Home_Controller();

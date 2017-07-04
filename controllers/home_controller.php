@@ -17,7 +17,7 @@ class Home_Controller extends Controller  {
         $this->view->render('home/home_page.php');
     }
     public function uputstva() {
-        $this->view->render('home/uputstva.php');
+        $this->view->render('home/instructions.php');
     }
 
 }

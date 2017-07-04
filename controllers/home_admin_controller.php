@@ -26,7 +26,7 @@ class Home_Admin_Controller extends Admin_Controller {
         $this->view->activeNavigation = 'home';
         $slide = $this->model->getSlide($slideId);
         $this->view->slide = $slide;
-        $this->view->render('home/prikaz_slide.php');
+        $this->view->render('home/slide_show.php');
         
     }
     
@@ -63,7 +63,7 @@ class Home_Admin_Controller extends Admin_Controller {
         $this->view->activeNavigation = 'home';
         $item = $this->model->getItem($itemId);
         $this->view->item = $item;
-        $this->view->render('home/prikaz_item.php');
+        $this->view->render('home/display_element.php');
         
     }
     

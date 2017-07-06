@@ -125,7 +125,7 @@ class Products_Model extends Model {
     }
      public function purchase($id, $broj, $cena) {
         // metoda koja za svaku kupovinu upisuje u bazu id korisnika koji je izvrsio kupovinu, id proizvoda koji je kupljen i datum kupovine
-        $createDate = time();
+        $createDate = date('Y-m-d H:i:s');
 
 		 
 		 $sql = "INSERT INTO `purchases` (`fk_user_id`, `amount`, `purchase_date`, `total_price`)

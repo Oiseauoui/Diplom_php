@@ -2,7 +2,7 @@
 Class Users_Model extends Model{
 
     public function userAdd($user) {
-        $registrationDate = date_create();
+        $registrationDate = date('Y-m-d H:i:s');
 
         //Proveravamo da li postoji login ili email
         $sql = "SELECT *

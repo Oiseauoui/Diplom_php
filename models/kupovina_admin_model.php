@@ -30,7 +30,7 @@ class Kupovina_Admin_Model extends Admin_Model {
         FROM items_to_purchases ip
         INNER JOIN purchases p ON p.purchase_id=ip.fk_purchase_id
         INNER JOIN items i ON i.item_id=ip.fk_item_id
-		where ip.fk_purchase_id ={$purchases_id}";
+		where ip.fk_purchase_id ='{$purchases_id}'";
 //print_r($purchases_id);
 //echo $purchases;
 //exit();
@@ -41,8 +41,10 @@ class Kupovina_Admin_Model extends Admin_Model {
     }
 
     public function changeStatus($purchaseId){
-        $sentDate = time();
-        $sql = "UPDATE `purchases` SET `status` = 1, `sent_date` = $sentDate WHERE `purchase_id` = $purchaseId";
+        $sentDate =date('Y-m-d H:i:s');
+       // var_dump($sentDate);// die();
+        $sql = "UPDATE `purchases` 
+                SET `status` = 1, sent_date = '{$sentDate}' WHERE `purchase_id` = $purchaseId";
         $this->db->exec($sql);
         return true;
     }

@@ -16,7 +16,7 @@
             echo   '<h3 style="color:red">Вы не отредактировали элемент!</h3><br>';
         }
         ?>
-        <div class='col-xs-12 col-sm-5 col-md-6'>
+
             <table class="table-responsive mt15" border="1">
                 <tr>
                     <td>Номер заказа</td>
@@ -55,3 +55,4 @@
             </table>
         </div>
     </section>
+</div>

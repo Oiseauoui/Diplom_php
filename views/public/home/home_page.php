@@ -12,7 +12,7 @@
                             <p class='header-welcome'><?php echo $slider['welcome'] ?></p>
                             <p class='header-shop'><?php echo $slider['shop'] ?></p>
                             <p class='header-enter'>
-                                <a href='<?php echo URL . 'proizvodi' ?>'>ПОКУПКИ</a>
+                                <a href='<?php echo URL . 'products' ?>'>ПОКУПКИ</a> <!--переход на страницу товаров-->
                             </p>
                         </div>
                     </div>

@@ -54,7 +54,7 @@
         foreach ($this->items as $item) {
             if($item['item_id'] == ''){break;}
             echo '<tr>';
-            echo '<td><a href="' . ADMIN_URL . 'products/updateProduct/' . $item['item_id'] . '" title="Изменить">' . $item['item_id'] . '</td>';
+            echo '<td><a href="' . ADMIN_URL . 'products/updateProduct/' . $item['item_id'] . '" title="Изменить">' . $item['item_id'] . '</a></td>';
             echo '<td>' . $item['title'] . '</td>';
             echo '<td>' . $item['description'] . '</td>';
             if (!empty($item['image'])) {
@@ -66,7 +66,7 @@
             echo '<td>' . $item['price'] . '</td>';
             $active = $item['active'] == 1 ? "В наличии" : "Нет в наличии";
             echo '<td>' . $active . '</td>';
-            echo '<td>' .date('Y-m-d H:i:s', strtotime(str_replace('-','/',($item['create_date']))) ). '</td>';
+            echo '<td>' .date('Y-m-d H:i:s', strtotime(str_replace('-','/',($item['create_date']))) ). '</td>';// items
         foreach ($this->kategorije as $category) {
             if ($item['fk_category_id'] == $category['category_id']) {
                 echo '<td>' . $category['name'] . '</td>';

@@ -150,6 +150,7 @@ class Products_Admin_Controller extends Admin_Controller {
         $search = !empty($_GET['pretraga']) ? $_GET['pretraga'] : '';
         $this->view->searchParam = !empty($search) ? '&pretraga=' . $search : '';
         $this->view->search = $search;
+
         $itemsPerPage = 10;
         $page = 1;
         if (!empty ($_GET['page']) && $_GET['page']>1) {
@@ -162,6 +163,7 @@ class Products_Admin_Controller extends Admin_Controller {
         $this->view->pagesCount=$pagesCount;
         $this->view->currentPage=$page;
         $this->view->paginationUrl = ADMIN_URL . 'products';  //отвечает за поиск
+
         $items = $this->model->getItems(0,0,$offset,$limit,$search);
         $this->view->items = $items;
         $subCategories=$this->model->getAdminSubCategories();

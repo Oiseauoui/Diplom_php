@@ -17,7 +17,7 @@
                         ?>
                         <?php
                         if (!empty($_GET['error']) && $_GET['error'] == 'neuspesna_registracija') {
-                            var_dump($_POST);
+                            //var_dump($_POST);
                             echo '<h3 style="color:red">Регистрация не удалась, попробуйте еще раз позже!</h3><br>';
                         }
                         ?>

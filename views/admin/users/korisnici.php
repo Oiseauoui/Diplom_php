@@ -42,7 +42,7 @@ if (!empty($_GET['poruka']) && $_GET['poruka'] == 'postoji') {
     <option value=""> - - - - - </option>
     <?php
     foreach ($this->groups as $groups) {
-        echo '<option ' . ($this->korisnik['fk_group_id'] == $groups['group_id'] ? 'selected="selected"' : '') . ' value="' . $groups['group_id'] . '">' . $groups['group'] . '</option>';
+        echo '<option ' . ($this->korisnik['fk_group_id'] == $groups['group_id'] ? 'selected="selected"' : '') . ' value="' . $groups['group_id'] . '">' . $groups['group_id'] . '</option>';
     }
     ?>
 </select> <br/>

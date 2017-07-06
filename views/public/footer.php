@@ -199,7 +199,7 @@
         </div>
     </footer>
 <div id='arrow-top'>
-    <img src='<?php echo  "images/arrow.png"?>' alt='arrow'/>
+    <img src='<?php echo  "/images/arrow.png"?>' alt='arrow'/>
 </div>
     </body>
 </html>
